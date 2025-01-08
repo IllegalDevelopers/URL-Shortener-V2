@@ -30,7 +30,7 @@ cancel_button = [[InlineKeyboardButton(
 async def batch(c, m: Message):
 
     if m.from_user.id not in ADMINS:
-        return await m.reply_text("Works only for admins")
+        return await m.reply_text("Works only For Admins")
 
     user_id = m.from_user.id
     user = await get_user(user_id)
@@ -56,7 +56,7 @@ async def batch(c, m: Message):
         ]
 
         return await m.reply(
-            text=f"Are you sure you want to batch short?\n\nChannel: {channel_id}",
+            text=f"Are You Sure You Want To Batch Short?\n\nChannel: {channel_id}",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -75,7 +75,7 @@ async def batch_handler(c: Client, m: CallbackQuery):
     elif m.data.startswith("batch"):
         if lock.locked():
             return await m.answer(
-                "Wait until previous process complete.", show_alert=True
+                "Wait Until Previous Process Complete.", show_alert=True
             )
 
         channel_id = int(m.data.split("#")[1])
@@ -85,9 +85,9 @@ async def batch_handler(c: Client, m: CallbackQuery):
             await txt.delete()
 
         except ChatWriteForbidden:
-            return await m.message.edit("Bot is not an admin in the given channel")
+            return await m.message.edit("Bot Is Not An Admin In The Given Channel")
         except PeerIdInvalid:
-            return await m.message.edit("Given channel ID is invalid")
+            return await m.message.edit("Given Channel ID Is Invalid")
         except Exception as e:
             logging.exception(e)
             return await m.message.edit(e)
