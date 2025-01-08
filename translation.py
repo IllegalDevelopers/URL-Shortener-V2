@@ -11,14 +11,13 @@ For example: <code>/batch -100xxx</code>
 I'll handle the rest and get those links shortened or converted in a short time! 💪
 """
 
-START_MESSAGE = """Hi there {} 
+START_MESSAGE = """<b>Hi there {} 
 
 Send me a link or post and I'll shorten it for you!
 
 To learn more about what I can do, just type /help.
 
-Method: {}
-Shortener website: {}
+Shortener website: linkmonetizer.in</b>
 """
 
 HELP_MESSAGE = """Hey there! My name is {firstname} and I'm a link convertor and shortener bot here to make your work easier and help you earn more 💰.
@@ -44,13 +43,11 @@ Useful commands:
 ABOUT_TEXT = """
 **My Details:**
 
-`🤖 Name:` ** {} **
+<b>• Name: {}
     
-`📝 Language:` [Python 3](https://www.python.org/)
-`🧰 Framework:` [Pyrogram](https://github.com/pyrogram/pyrogram)
-`👨‍💻 Developer:` [Dev](t.me/ask_admin001)
-`📢 Support:` [Talk Bot](https://t.me/ask_admin001)
-`🌐 Source Code:` [GitHub](https://github.com/kevinnadar22/URL-Shortener-V2/)
+• Channel: [Link Monetizer](https://t.me/LinkMonetizer)
+• Developer: [Dev](https://t.me/LinkMonetizerSupportBot)
+• Support: [Talk Bot](https://t.me/LinkMonetizerSupportBot)</b>
 """
 
 
@@ -91,15 +88,13 @@ Here is a list of the channels:
 HELP_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("Methods", callback_data="method_command"),
+            InlineKeyboardButton("Channels", callback_data="channels_list"),
             InlineKeyboardButton("Batch", callback_data="cbatch_command"),
         ],
         [
             InlineKeyboardButton("Custom Alias", callback_data="alias_conf"),
-            InlineKeyboardButton("Admins", callback_data="admins_list"),
         ],
         [
-            InlineKeyboardButton("Channels", callback_data="channels_list"),
             InlineKeyboardButton("Home", callback_data="start_command"),
         ],
     ]
@@ -123,7 +118,6 @@ START_MESSAGE_REPLY_MARKUP = InlineKeyboardMarkup(
             InlineKeyboardButton("About", callback_data="about_command"),
         ],
         [
-            InlineKeyboardButton("Method", callback_data="method_command"),
             InlineKeyboardButton("Close", callback_data="delete"),
         ],
     ]
@@ -154,13 +148,9 @@ BACK_REPLY_MARKUP = InlineKeyboardMarkup(
 USER_ABOUT_MESSAGE = """
 🔧 Here are the current settings for this bot:
 
-- 🌐 Shortener website: {base_site}
-
-- 🧰 Method: {method}
+- 🌐 Shortener website: linkmonetizer.in
 
 - 🔌 {base_site} API: {shortener_api}
-
-- 💾 Mdisk API: {mdisk_api}
 
 - 📎 Username: @{username}
 
