@@ -16,29 +16,29 @@ def is_enabled(value, default):
 
 # Mandatory variables for the bot to start
 # API ID from https://my.telegram.org/auth
-API_ID = int(os.environ.get ("API_ID", "21655449"))
+API_ID = int(os.environ.get("API_ID"))
 # API Hash from https://my.telegram.org/auth
-API_HASH = os.environ.get("112be9974e163f6dbd645ce4b94f4e6a")
-BOT_TOKEN = os.environ.get("7986136723:AAEUyHspLBDtfx2KWE9mB7dx8Pvd6dE7cFc")  # Bot token from @BotFather
+API_HASH = os.environ.get("API_HASH")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")  # Bot token from @BotFather
 ADMINS = (
     [int(i.strip()) for i in os.environ.get("ADMINS").split(",")]
-    if os.environ.get("1229852181")
+    if os.environ.get("ADMINS")
     else []
 )
 
-DATABASE_NAME = os.environ.get("DATABASE_NAME", "kunal")
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "MdiskConvertor")
 DATABASE_URL = os.environ.get(
-    "mongodb+srv://kailash:pass@cluster0.sqtztxm.mongodb.net/?retryWrites=true&w=majority", None
+    "DATABASE_URL", None
 )  # mongodb uri from https://www.mongodb.com/
-OWNER_ID = int(os.environ.get("OWNER_ID", "1229852181"))  # id of the owner
+OWNER_ID = int(os.environ.get("OWNER_ID"))  # id of the owner
 ADMINS.append(OWNER_ID) if OWNER_ID not in ADMINS else []
 
 #  Optionnal variables
 LOG_CHANNEL = int(
-    os.environ.get("LOG_CHANNEL", "-1001799594060")
+    os.environ.get("LOG_CHANNEL", "0")
 )  # log channel for information about users
 UPDATE_CHANNEL = int(os.environ.get(
-    "-1002243500607", True))  # For Force Subscription
+    "UPDATE_CHANNEL", False))  # For Force Subscription
 BROADCAST_AS_COPY = is_enabled(
     (os.environ.get("BROADCAST_AS_COPY", "False")), False
 )  # true if forward should be avoided
@@ -54,7 +54,7 @@ LINK_BYPASS = is_enabled(
     (os.environ.get("LINK_BYPASS", "False")), False
 )  # if true, urls will be bypassed
 # your shortener site domain
-BASE_SITE = os.environ.get("BASE_SITE", "linkmonetizer.in")
+BASE_SITE = os.environ.get("BASE_SITE", "droplink.co")
 
 # For Admin use
 CHANNELS = is_enabled((os.environ.get("CHANNELS", "True")), True)
@@ -69,7 +69,7 @@ DE_BYPASS = (
     if os.environ.get("DE_BYPASS")
     else []
 )
-DE_BYPASS.append("linkmonetizer.in")
+DE_BYPASS.append("mdisk.me")
 
 FORWARD_MESSAGE = is_enabled(
     (os.environ.get("FORWARD_MESSAGE", "False")), False
